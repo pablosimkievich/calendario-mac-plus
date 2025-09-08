@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Calendario Mac Plus</title>
+    
+</head>
+
+<body class="app-container">
+
+    <div id="app-container">
+        <div class="window-title-bar">
+            CALENDARIO AGENDA TAREAS
+        </div>
+        <div class="header-controls">
+            <button id="prev-month">&lt;</button>
+            <div id="current-month"></div>
+            <button id="next-month">&gt;</button>
+        </div>
+        <div class="calendar-grid">
+            <div class="day-label">Dom</div>
+            <div class="day-label">Lun</div>
+            <div class="day-label">Mar</div>
+            <div class="day-label">Mié</div>
+            <div class="day-label">Jue</div>
+            <div class="day-label">Vie</div>
+            <div class="day-label">Sáb</div>
+        </div>
+    </div>
+
+    <!-- Cuadro de diálogo para tareas -->
+    <div id="task-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">Tareas para <span id="modal-date-display"></span></div>
+
+            <div id="modal-task-list" class="modal-task-list"></div>
+
+            <div class="task-input-group modal-buttons ">
+                <input type="text" id="task-input" placeholder="Nueva tarea">
+                <button class="" id="add-task-btn">Agregar</button>
+            </div>
+
+            <div class="modal-buttons">
+                <button class="this-button" id="close-modal-btn">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cuadro de diálogo para editar tareas -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">Editar Tarea</div>
+            <input type="text" id="edit-task-input">
+            <div class="modal-buttons">
+                <button id="save-edit-btn">Guardar</button>
+                <button id="cancel-edit-btn">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>

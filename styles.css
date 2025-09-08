@@ -1,0 +1,306 @@
+        /* Estilos generales del cuerpo y la fuente para la estética Mac Plus */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #D6D6C8;
+            /* Sepia-gris claro */
+            color: #444440;
+            /* Gris oscuro para el texto */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* height: 100vh; */
+            margin: 15px 0;
+            user-select: none;
+            cursor: url('data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/wAAAP8AAAAAAAAAAAAA////////////////AAAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAAIAAAAC/wAAAAAAAAAAAAAAACAAAAAAAAAAAACAAAAAAAAAAACAAAAAAAAAAACAAAAAAAAAAACAAAAAAAAAAACAAAAAAAAAAACAAAAAAAAAAACAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/////////////////AAAAAAAAAAAAAAAAAAAAAP8AAAAAAAAAAAAA////////////////AAAAAAAAAAAAAAAAAAAAAP8AAAAAAAAAAAAA/////////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAAAAAAAAAAAAACAAAAAIAAAAAAAAAAAAAAAIAAAAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAA////////////////AAAAAAAAAAAAAAAAAAAAAP8AAAAAAAAAAAAA/////////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAAIAAAAC/wAAAAAAAAAAAAAAACAAAAAAAAAAAACAAAAAAAAAAACAAAAAAAAAAACAAAAAAAAAAACAAAAAAAAAAACAAAAAAAAAAACAAAAAAAAAAACAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/wAAAP8AAAAAAAAAAAAA////////////////AAAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAAAAAAAAAAAAAP///wAAAAAAAAAAAAAAAP///wAAAAAAAAAAAAAAAP///wAAAAAAAAAAAAAAAP///wAAAAAAAAAAAAAAAP///wAAAAAAAAAAAAAAAP///wAAAAAAAAAAAAAAAP///wAAAAAAAAAAAAAAAP///wAAAAAAAAAAAAAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'), auto;
+            /* Cursor tipo mano de Mac */
+        }
+
+        /* Para navegadores basados en WebKit (Chrome, Safari, Edge, Opera) */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Contenedor principal del calendario, ahora con altura adaptable */
+        #app-container {
+            width: 90%;
+            /* Ancho del 90% para que ocupe casi toda la pantalla */
+            max-width: 1200px;
+            /* Limita el ancho en pantallas muy grandes */
+            /* height: 90vh; /* Se ajusta al 90% del alto del viewport */
+            background-color: #D6D6C8;
+            border: 2px solid #000;
+            box-shadow: 4px 4px 0 #707066;
+            /* Sombra que simula el 3D del Mac Plus */
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+        }
+
+
+
+        /* Título de la ventana */
+        .window-title-bar {
+            background-color: #707066;
+            color: #D6D6C8;
+            font-weight: bold;
+            padding: 5px;
+            text-align: center;
+            border: 2px solid #000;
+            box-shadow: inset 1px 1px 0 #A3A39A;
+            margin-bottom: 10px;
+        }
+
+        /* Controles de navegación de mes */
+        .header-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .header-controls button {
+            background-color: #D6D6C8;
+            border: 2px solid #000;
+            box-shadow: 2px 2px 0 #707066;
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.1s ease;
+        }
+
+        .header-controls button:active {
+            box-shadow: 1px 1px 0 #707066;
+            transform: translate(1px, 1px);
+        }
+
+        #current-month {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px #A3A39A;
+        }
+
+        /* Estilos del calendario */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            border: 2px solid #000;
+            padding: 5px;
+            background-color: #A3A39A;
+            flex-grow: 1;
+        }
+
+        .day-label,
+        .date-cell {
+            background-color: #D6D6C8;
+            border: 2px solid #000;
+            box-shadow: 2px 2px 0 #707066;
+            text-align: center;
+            padding: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .day-label {
+            background-color: #A3A39A;
+            color: #D6D6C8;
+            text-shadow: 1px 1px #444440;
+        }
+
+        .date-cell {
+            height: 70px;
+            /* Altura de celda más pequeña para ajustarse al viewport */
+            cursor: pointer;
+            position: relative;
+            overflow: auto;
+            transition: all 0.1s ease;
+        }
+
+        .word {
+            overflow: ellipsis;
+        }
+
+        .date-cell:active {
+            box-shadow: inset 2px 2px 0 #707066, 1px 1px 0 #A3A39A;
+            transform: translate(1px, 1px);
+        }
+
+        /* Estilo para las tareas dentro de la celda */
+        .task-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            font-size: 12px;
+            text-align: left;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            margin-top: 2px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .task-completed {
+            /* Estilo para tareas completadas */
+            text-decoration: line-through;
+            font-style: italic;
+            /* Añade cursiva para un efecto retro */
+            color: #222220;
+            /* Gris muy oscuro, casi negro, para que destaque */
+        }
+
+        /* Oculta el checkbox original */
+        .task-checkbox {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+        }
+
+        /* Estilo para el checkbox personalizado */
+        .custom-checkbox {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border: 2px solid #000;
+            background-color: #D6D6C8;
+            position: relative;
+            box-shadow: 1px 1px 0 #707066;
+            margin-right: 5px;
+        }
+
+        /* Estilo para la marca de verificación */
+        .custom-checkbox::after {
+            content: '';
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            width: 8px;
+            height: 8px;
+            background-color: #444440;
+            opacity: 0;
+            transition: opacity 0.1s ease-in-out;
+        }
+
+        /* Mostrar la marca de verificación cuando el checkbox real está marcado */
+        .task-checkbox:checked+.custom-checkbox::after {
+            opacity: 1;
+        }
+
+        /* Cuadro de diálogo modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: #D6D6C8;
+            border: 2px solid #000;
+            box-shadow: 4px 4px 0 #707066;
+            padding: 20px;
+            width: 400px;
+            max-height: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .modal-header {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .modal-task-list {
+            flex-grow: 1;
+            overflow-y: auto;
+            border: 2px solid #444440;
+            padding: 5px;
+            background-color: #F8F8F0;
+        }
+
+        .modal-task-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px;
+            border-bottom: 1px solid #A3A39A;
+        }
+
+        .modal-task-item:last-child {
+            border-bottom: none;
+        }
+
+        .modal-task-text {
+            flex-grow: 1;
+        }
+
+        .modal-task-actions {
+            display: flex;
+            gap: 5px;
+        }
+
+        .task-input-group {
+            display: flex;
+            gap: 5px;
+        }
+
+        .task-input-group input {
+            flex-grow: 1;
+            padding: 5px;
+            border: 2px solid #444440;
+            background-color: #F8F8F0;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .this-button {
+            min-width: 80px;
+        }
+
+        .modal-buttons button,
+        .modal-task-actions button {
+            background-color: #D6D6C8;
+            border: 2px solid #000;
+            box-shadow: 2px 2px 0 #707066;
+            padding: 5px 15px;
+            cursor: pointer;
+            transition: all 0.1s ease;
+        }
+
+        .modal-buttons button:active,
+        .modal-task-actions button:active {
+            box-shadow: 1px 1px 0 #707066;
+            transform: translate(1px, 1px);
+        }
+
+        /* Estilos del modal para editar */
+        #edit-modal {
+            display: none;
+        }
+
+        #edit-modal input {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .hidden {
+            display: none;
+        }
