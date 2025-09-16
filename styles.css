@@ -1,6 +1,17 @@
+        @font-face {
+            font-family: 'Chicago';
+            src: url('fonts/ChicagoFLF.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+
+        * {
+              font-family: 'Chicago', sans-serif;
+        }
+
         /* Estilos generales del cuerpo y la fuente para la estética Mac Plus */
         body {
-            font-family: 'Courier New', Courier, monospace;
             background-color: #D6D6C8;
             /* Sepia-gris claro */
             color: #444440;
